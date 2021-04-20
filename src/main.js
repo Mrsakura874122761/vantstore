@@ -4,12 +4,20 @@ import App from './App.vue'
 import router from './router'
 import fastclick from"fastclick"
 import axios from 'axios'
-import { GoodsAction, GoodsActionIcon, GoodsActionButton,PullRefresh,Cell,CellGroup, List , Tag, Sticky ,Grid, GridItem,Icon, Tab, Tabs,Search,Col, Row,Lazyload,Button ,Tabbar, TabbarItem} from 'vant';
+import {Checkbox,SubmitBar,NavBar, Dialog , Card,GoodsAction, GoodsActionIcon, GoodsActionButton,PullRefresh,Cell,CellGroup, List , Tag, Sticky ,Grid, GridItem,Icon, Tab, Tabs,Search,Col, Row,Lazyload,Button ,Tabbar, TabbarItem} from 'vant';
 import vueSwiper from 'vue-awesome-swiper'
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/swiper.css'
 import "./assets/iconfont/iconfont.css"
 import store from './store/store'  
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(GoodsAction)
+Vue.use(SubmitBar)
+Vue.use(Checkbox)
+Vue.use(NavBar)
+Vue.use(Dialog)
+Vue.use(Card)
+Vue.use(ElementUI);
 Vue.use(GoodsActionIcon)
 Vue.use( GoodsActionButton)
 Vue.use(PullRefresh)

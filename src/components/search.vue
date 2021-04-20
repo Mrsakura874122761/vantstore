@@ -245,7 +245,6 @@ export default {
         "洗衣机",
         "冰箱",
         "零食",
-        "充气娃娃",
       ],
 
       //搜索关键词
@@ -266,6 +265,11 @@ export default {
   },
 
   created() {
+     if(this.$route.query.goodsname){
+            this.query = this.$route.query.goodsname;
+      this.onSearch();
+        this.isshowkeyword = false;
+     }
     let receive = localStorage.getItem("historySearch");
     if (!receive) {
       receive = [];

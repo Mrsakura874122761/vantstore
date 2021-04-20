@@ -88,7 +88,6 @@ const originalPush = VueRouter.prototype.push
 const router = new VueRouter({
     mode: "history",
     routes,
-    
     acrtiveClass: 'active'
   })
 export default router

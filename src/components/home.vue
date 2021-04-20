@@ -59,7 +59,28 @@ export default {
     return {
       isActive: false,
       navIndex: 0,
-      tablist:"",
+      tablist:[
+        {
+            name: "衣服",
+            path: "/home/nenmo",
+        },
+        {
+            name: "水果",
+            path: "/home/fruits",
+        },
+        {
+            name: "日常用品",
+            path: "/home/sex",
+        },
+        {
+            name: "游戏",
+            path: "/home/game",
+        },
+        {
+            name: "家电",
+            path: "/home/dianqi",
+        },
+    ],
       value: "",
       active: 0,
       //   swiperOption: {
@@ -82,11 +103,11 @@ export default {
       // ],
     };
   },
-  async created() {
- await this.$http.get("/tab/tablist").then(res=>{
-              console.log(res.data);
-             this.tablist=res.data;
- })
+  created() {
+//  await this.$http.get("/tab/tablist").then(res=>{
+//               console.log(res.data);
+//              this.tablist=res.data;
+//  })
       
    
   },

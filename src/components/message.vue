@@ -17,14 +17,14 @@
           :key="rindex"
           v-for="(ritem, rindex) in list[this.indexs].children"
         >
-          <h3>{{ ritem.cat_name }}</h3>
+          <h3>{{ ritem.cat_name}}</h3>
           <van-grid :column-num="3"    icon-size="70px">
             <van-grid-item
               v-for="(item, index) in ritem['children']"
               :key="index"
               :icon="item.cat_icon"
-              :text="item.cat_name"
-            
+              :text="item.cat_name" 
+              @click="gogoods(item.cat_name)" 
             >
               <!-- <img width="70px" :src="item.cat_icon" alt=""> -->
             </van-grid-item>
@@ -86,6 +86,9 @@ export default {
     FooterTabbar,
   },
   methods: {
+    gogoods(name){
+      this.$router.push({path:"/search",query: {goodsname:name}})
+    },
     leftClick(index) {
       this.indexs = index;
       var top = document.documentElement.scrollTop || document.body.scrollTop;

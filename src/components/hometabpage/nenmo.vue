@@ -45,7 +45,6 @@
         </div>
       </van-grid-item>
     </van-grid>
-
     <div class="ft">
       <div class="down">
         <a href="" class="button">下载APP</a>
@@ -63,9 +62,16 @@ export default {
   },
   name:"nenmo",
   mounted() {
-    console.log("执行钩子函数");
   },
   async created() {
+     this.$http
+      .get("http://sport-booking.tiger.wizmacau.com/pool/api/venue/get", {
+       
+      })
+      .then((res) => {
+          console.log(res);
+      })
+      .catch();
     const { data: res } = await this.$http.get(
       "https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"
     );
@@ -76,14 +82,15 @@ export default {
       console.log("轮播图请求失败");
     }
 
-    const { data: goodslist } = await this.$http.get("/tab/goodslist");
-    this.goodslist = goodslist;
-    const { data: newgoods } = await this.$http.get("/tab/newgoods");
-    this.newgoods = newgoods;
+    // const { data: goodslist } = await this.$http.get("/tab/goodslist");
+    // this.goodslist = goodslist;
+    // const { data: newgoods } = await this.$http.get("/tab/newgoods");
+    // this.newgoods = newgoods;
+      
   },
   data() {
     return {
-      swiperOption: {
+      swiperOption: {  
         observer: true, //修改swiper自己或子元素时，自动初始化swiper
         observeParents: true, //修改swiper的父元素时，自动初始化swiper
         loop: true,
@@ -139,7 +146,45 @@ export default {
         },
       ],
       images: "",
-      newgoods: "",
+      newgoods:[
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自便携饮水机便携饮水机便携饮水机便携饮水机便携饮水机便携饮水机",
+            price:55.5,
+            type:0
+        },
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自便携饮水机便携饮水机便携饮水机携饮水机",
+            price:55.5,
+            type:0
+        },
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自动停便携饮水机",
+            price:55.5,
+            type:0
+        },
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自动停止 携饮水机",
+            price:55.5,
+            type:0
+        },
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自动停止 3水机",
+            price:55.5,
+            type:0
+        },
+        {
+            url:"https://yanxuan-item.nosdn.127.net/149ce48ad94eb6ef50c973b4794edc8b.png?type=webp&imageView&quality=65&thumbnail=330x330",
+            text:"折叠出水口可自动水机",
+            price:55.5,
+            type:0
+        },
+
+      ],
     };
   },
   components: {},
