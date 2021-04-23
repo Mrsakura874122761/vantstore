@@ -1,9 +1,10 @@
 <template>
     <div>
         <div >
-   <van-nav-bar title="好多多登录"  left-text="返回"
+   <van-nav-bar 
+   left-text="返回"
   left-arrow
-  @click-left="onClickLeft" >
+  @click-left="onClickLeft" title="好多多注册"   >
 </van-nav-bar>
        <div class="center">
             <img
@@ -33,10 +34,18 @@
     placeholder="请输入密码"
     
   />
+  <van-field
+    v-model="loginForm.passwords"
+    required
+     type="password"
+    label="确认密码"
+    placeholder="请再次输入密码"
+    
+  />
 </van-cell-group>
 <div class="btn">
-    <van-button type="primary" @click="login()">登录</van-button>
-<van-button type="info" @click="gohome">注册</van-button>
+    <van-button type="primary" @click="goback()">返回登录</van-button>
+<van-button type="info" @click="registered()">注册</van-button>
 </div>
        </div>
         </div>
@@ -44,7 +53,6 @@
 </template>
 <style>
 .btn{
-  
     padding:20px ;
     display: flex;
     justify-content: space-between;
@@ -57,44 +65,43 @@
 </style>
 <script>
 export default {
-    name:"login",
+    name:"sex",
     data(){
         return{
-        loginForm: {
+     
+    loginForm: {
         username: "",
         password: "",
+        passwords:""
       },
-             
+       loginForms: {
+        username: "admin",
+        password: "123456",
+        passwords:"123456"
+      },
         }
     },
     methods:{
-          onClickLeft(){
+        onClickLeft(){
               this.$router.go(-1)
              console.log("1")
         },
-        login(){
-             this.$http
-      .post("https://www.liulongbin.top:8888/api/private/v1/login",this.loginForm).then((res)=>{
-             if (res.data.meta.status !== 200) {
-            this.$toast.fail('登录失败');
-        } else {
-             this.$toast.success('登录成功');
-          console.log(res.data.data.token);
-          window.sessionStorage.setItem('token',res.data.data.token);
-          this.$router.push("/home")
-          
-        }
+        registered(){
+            if(this.loginForm.passwords!=this.loginForm.password){
+                   this.$toast.fail('两次输入密码不一致');
+            }else{  
+                     this.$toast.success('注册成功');
+                        this.$router.push("/login")
+            }
            
-      })
-        }
-        ,
+        },
         goback(){
           this.$router.go(-1)
           console.log("1")
         },
        
         gohome(){
-            this.$router.push("/registered")
+            this.$router.push("/home")
         }
     }
     

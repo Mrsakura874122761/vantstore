@@ -17,8 +17,11 @@
             </template>
           </van-search></van-col
         >
-        <van-col span="4"
-          ><div style="color:#fff" @click="gologin()" >登录</div>
+        <van-col v-if="islogin" span="4"
+          ><div style="color:#fff" >已登录</div>
+        </van-col>
+        <van-col v-else span="4"
+          ><div style="color:#fff" @click="gologin()"  >登录</div>
         </van-col>
       </van-row>
     </div>
@@ -59,6 +62,7 @@ export default {
     return {
       isActive: false,
       navIndex: 0,
+      islogin:false,
       tablist:[
         {
             name: "衣服",
@@ -104,6 +108,12 @@ export default {
     };
   },
   created() {
+        if(window.sessionStorage.getItem('token')){
+            this.islogin=true
+            console.log(window.sessionStorage.getItem('token'));
+      }else{
+        this.islogin=false
+      }
 //  await this.$http.get("/tab/tablist").then(res=>{
 //               console.log(res.data);
 //              this.tablist=res.data;

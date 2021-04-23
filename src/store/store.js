@@ -11,7 +11,9 @@ const store = new Vuex.Store({
         name: 'helloVueX',
         data: {},
         cardlists:[],
+        order:[],
         sum:0,
+        sums:0,
 
     },
     getters:{
@@ -23,6 +25,16 @@ const store = new Vuex.Store({
                 }
             }
             return sum*100
+                 
+        },
+        SUMS:(state)=>{
+            let sums=0;
+            for(let i=0;i<state.order.length;i++){
+                if(state.order[i].ischeck==true){
+                      sums=sums+(state.order[i].goods_price*state.order[i].num)
+                }
+            }
+            return sums*100
                  
         }
     },
@@ -39,6 +51,42 @@ const store = new Vuex.Store({
         C_NUM:(state,i)=>{
             state.cardlists[i].num-=1
        },
+       ORDER:(state)=>{
+           let list=state.cardlists;
+           console.log(state.cardlists.length);
+        for(let i=0;i<state.cardlists.length;i++){
+            if(state.cardlists[i].ischeck==true){
+                  state.order.push(state.cardlists[i])
+                  list.splice((i),1)
+                  i= i-1
+            }
+        }
+        state.cardlists=list
+        console.log(state.order);
+        console.log(state.cardlists);
+       },
+        DEL:(state)=>{
+            let list=state.cardlists;
+            console.log(state.cardlists.length);
+         for(let i=0;i<state.cardlists.length;i++){
+             if(state.cardlists[i].ischeck==true){
+                   list.splice((i),1)
+                   i= i-1
+             }
+         }
+         state.cardlists=list
+        },
+        DELS:(state)=>{
+            let list=state.order;
+            console.log(state.order.length);
+         for(let i=0;i<state.order.length;i++){
+             if(state.order[i].ischeck==true){
+                   list.splice((i),1)
+                   i= i-1
+             }
+         }
+            state.order=list
+        }
      
           
     },

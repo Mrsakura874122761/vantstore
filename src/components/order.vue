@@ -2,7 +2,7 @@
     <div>
        <div v-if="islogin">
          <van-nav-bar
-  title="购物车"
+  title="我的订单"
   left-text="返回"
   right-text="编辑"
   left-arrow
@@ -12,7 +12,7 @@
      <van-row 
      style="margin-top:15px"
           type=“flex”
-     v-for="(i,index) in cardlists"
+     v-for="(i,index) in order"
           :key="index"> 
   <van-col style="margin-top:40px" offset="1" span="3" > <van-checkbox v-model="i.ischeck" @click="Check()"></van-checkbox></van-col>
   <van-col span="20">  <van-card
@@ -50,7 +50,7 @@
     <van-button size="mini" @click="cdd(index,i.num)">-</van-button>
   </template>
 </van-card> -->
-  <van-submit-bar  :price="SUM" button-text="提交订单" @submit="onSubmit">
+  <van-submit-bar  :price="SUMS" button-text="去结算" @submit="onSubmit">
   <van-checkbox v-model="checked" @click="allCheck()">全选</van-checkbox>
 </van-submit-bar>
       
@@ -58,7 +58,7 @@
        </div>
        <div v-else>
               <van-nav-bar
-  title="购物车"
+  title="我的订单"
   left-text="返回"
   right-text="编辑"
   left-arrow
@@ -94,8 +94,8 @@ export default {
     
     },
      computed:{
-          ...mapState(["cardlists"]),
-          ...mapGetters(["SUM"])
+          ...mapState(["order"]),
+          ...mapGetters(["SUMS"])
     },
       methods: {
         Check(){
@@ -118,10 +118,10 @@ export default {
        this.$router.go(-1)
     },
     onClickRight() {
-        this.$store.commit('DEL')
+     this.$store.commit('DELS')
     },
     onSubmit(){
-        this.$store.commit('ORDER')
+     
     },
      gologin(){
                this.$router.push("/login")

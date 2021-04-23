@@ -12,6 +12,8 @@ const  nenmo=()=> import('../components/hometabpage/nenmo.vue')
 const fruits=()=> import('../components/hometabpage/Fruits.vue')
 const search=()=> import('../components/search.vue')
 const goods=()=> import('../components/goods.vue')
+const registered  =()=> import('../components/login/registered.vue')
+const order  =()=> import('../components/order')
 Vue.use(VueRouter)
 const routes=[
 {
@@ -21,6 +23,14 @@ const routes=[
 {
     path:"/login",
     component:login  
+},
+{
+    path:"/registered",
+    component:registered  
+},
+{
+    path:"/order",
+    component:order  
 },
 {
      path:"/home",

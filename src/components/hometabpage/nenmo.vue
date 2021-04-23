@@ -64,14 +64,6 @@ export default {
   mounted() {
   },
   async created() {
-     this.$http
-      .get("http://sport-booking.tiger.wizmacau.com/pool/api/venue/get", {
-       
-      })
-      .then((res) => {
-          console.log(res);
-      })
-      .catch();
     const { data: res } = await this.$http.get(
       "https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"
     );
