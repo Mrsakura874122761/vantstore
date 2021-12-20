@@ -96,7 +96,7 @@ const originalPush = VueRouter.prototype.push
    return originalPush.call(this, location).catch(err => err)
    }
 const router = new VueRouter({
-    mode: "history",
+    mode: "hash",
     routes,
     acrtiveClass: 'active'
   })

@@ -16,13 +16,17 @@
     "jquery": "^3.5.1",
     "less": "^3.12.2",
     "less-loader": "^7.1.0",
+    "nativeshare": "^2.1.5",
     "save-dev": "0.0.1-security",
     "swiper": "^5.2.0",
     "vant": "^2.10.12",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "v4.1.1",
+    "vue-horizontal-calendar": "^0.9.3",
+    "vue-native-share": "^1.0.2",
     "vue-router": "^3.4.9",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "weixin-js-sdk": "^1.6.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -32,7 +36,8 @@
     "babel-plugin-import": "^1.13.1",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-cli": "^4.7.2"
   },
   "eslintConfig": {
     "root": true,

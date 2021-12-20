@@ -1,6 +1,12 @@
 
 module.exports = {
-    lintOnSave: false,
+    publicPath: './',
+    lintOnSave: false,  
+    outputDir: 'dist', // 构建时的输出目录
+  assetsDir: 'static', // 放置静态资源的目录
+  indexPath: 'index.html', // html 的输出路径
+  filenameHashing: true, // 文件名哈希值
+  lintOnSave: false,
     // use thread-loader for babel & TS in production build
     // enabled by default if the machine has more than 1 cores
     parallel: require('os').cpus().length > 1,
@@ -18,7 +24,6 @@ module.exports = {
      https: false,
      hotOnly: false,
      proxy: {
-
         "/tab":{
             target:"http://localhost:5555",
             changeOrigin:true,

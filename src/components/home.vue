@@ -1,90 +1,98 @@
 <template>
   <div>
     <van-sticky>
-    <div class="headers">
-      <van-row style="background-color:#e93b3d" type="flex" justify="center" align="center">
-        <van-col span="4">
-          <div @click="fenlei()"><i class="iconfont icon-fenlei" style="color:#fff;font-size:25px"></i></div>
-        </van-col>
-        <van-col span="16"
-          ><van-search
-            @click="onSearch()"
-            v-model="value"
-            show-action
-            placeholder="请输入商品关键字"
-          >
-            <template #action>
-            </template>
-          </van-search></van-col
+      <div class="headers">
+        <van-row
+          style="background-color: #e93b3d"
+          type="flex"
+          justify="center"
+          align="center"
         >
-        <van-col v-if="islogin" span="4"
-          ><div style="color:#fff" >已登录</div>
-        </van-col>
-        <van-col v-else span="4"
-          ><div style="color:#fff" @click="gologin()"  >登录</div>
-        </van-col>
-      </van-row>
-    </div>
-    <!-- <swiper class="swiper" :options="swiperOption">
+          <van-col span="4">
+            <div @click="fenlei()">
+              <i
+                class="iconfont icon-fenlei"
+                style="color: #fff; font-size: 25px"
+              ></i>
+            </div>
+          </van-col>
+          <van-col span="16"
+            ><van-search
+              @click="onSearch()"
+              v-model="value"
+              show-action
+              placeholder="请输入商品关键字"
+            >
+              <template #action> </template> </van-search
+          ></van-col>
+          <van-col v-if="islogin" span="4"
+            ><div style="color: #fff">已登录</div>
+          </van-col>
+          <van-col v-else span="4"
+            ><div style="color: #fff" @click="gologin()">登录</div>
+          </van-col>
+        </van-row>
+      </div>
+      <!-- <swiper class="swiper" :options="swiperOption">
       <swiper-slide class="Swiper" :key="index" v-for="(img, index) in images"
         ><img class="img" :src="img" alt=""
       /></swiper-slide>
 
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper> -->
-    <div class="nav">
-      <van-tabs animated>
-        <van-tab
-          replace
-          :to="tabitem.path"
-          :key="index"
-          v-for="(tabitem, index) in tablist"
-          :title="tabitem.name"
-        >
-         
-        </van-tab>
-      </van-tabs>
-    </div>
-</van-sticky>
-<keep-alive >
- <router-view  v-if="$route.meta.keepAlive"></router-view>
-</keep-alive>
- <router-view  v-if="!$route.meta.keepAlive"></router-view>
+      <div class="nav">
+        <van-tabs animated>
+          <van-tab
+            replace
+            :to="tabitem.path"
+            :key="index"
+            v-for="(tabitem, index) in tablist"
+            :title="tabitem.name"
+          >
+          </van-tab>
+        </van-tabs>
+      </div>
+    </van-sticky>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"></router-view>
 
     <FooterTabbar></FooterTabbar>
   </div>
 </template>
 <script>
 import FooterTabbar from "../components/footertarbar";
+// import wx from "weixin-js-sdk";
 export default {
   name: "home",
   data() {
     return {
       isActive: false,
       navIndex: 0,
-      islogin:false,
-      tablist:[
+      islogin: false,
+      tablist: [
         {
-            name: "衣服",
-            path: "/home/nenmo",
+          name: "衣服",
+          path: "/home/nenmo",
         },
         {
-            name: "水果",
-            path: "/home/fruits",
+          name: "水果",
+          path: "/home/fruits",
         },
         {
-            name: "日常用品",
-            path: "/home/sex",
+          name: "日常用品",
+          path: "/home/sex",
         },
         {
-            name: "游戏",
-            path: "/home/game",
+          name: "游戏",
+          path: "/home/game",
         },
         {
-            name: "家电",
-            path: "/home/dianqi",
+          name: "家电",
+          path: "/home/dianqi",
         },
-    ],
+      ],
       value: "",
       active: 0,
       //   swiperOption: {
@@ -108,42 +116,43 @@ export default {
     };
   },
   created() {
-        if(window.sessionStorage.getItem('token')){
-            this.islogin=true
-            console.log(window.sessionStorage.getItem('token'));
-      }else{
-        this.islogin=false
-      }
-//  await this.$http.get("/tab/tablist").then(res=>{
-//               console.log(res.data);
-//              this.tablist=res.data;
-//  })
-      
-   
+    if (window.sessionStorage.getItem("token")) {
+      this.islogin = true;
+      console.log(window.sessionStorage.getItem("token"));
+    } else {
+      this.islogin = false;
+    }
+    //  await this.$http.get("/tab/tablist").then(res=>{
+    //               console.log(res.data);
+    //              this.tablist=res.data;
+    //  })
+  },
+  mounted() {
+    // console.log(wx);
   },
 
   components: {
     FooterTabbar,
   },
   methods: {
-    gologin(){
-      this.$router.push("/login")
-
-
-      
+    sdks(){
+        
     },
-   fenlei() {
-    this.$router.push("/message")
+    gologin() {
+      this.$router.push("/login");
+    },
+    fenlei() {
+      this.$router.push("/message");
     },
     onSearch() {
-       this.$router.push("/search")
+      this.$router.push("/search");
     },
   },
 };
 </script>
 <style>
-.van-search{
-  background-color:transparent;
+.van-search {
+  background-color: transparent;
 }
 .action {
   padding-top: 10px !important;
