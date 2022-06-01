@@ -1,5 +1,8 @@
 # haoshuaistore
-
+serve
+cd nodemiddleware 
+node mystore 
+开启服务器
 ## Project setup
 ```
 npm install

@@ -8,7 +8,9 @@ import {Toast,Field,Checkbox,SubmitBar,NavBar, Dialog , Card,GoodsAction, GoodsA
 import vueSwiper from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 import "./assets/iconfont/iconfont.css"
+import "./indexs.scss"
 import store from './store/store'  
+console.log(process.env.NODE_ENV);
 Vue.use(Toast);
 Vue.use(Field)
 Vue.use(GoodsAction)

@@ -1,6 +1,11 @@
 <template>
   <div>
+    <!-- <img src="@/assets/logo.png" alt=""> -->
     <van-sticky>
+
+
+
+      
       <div class="headers">
         <van-row
           style="background-color: #e93b3d"
