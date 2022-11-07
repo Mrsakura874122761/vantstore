@@ -92,7 +92,7 @@ const store = new Vuex.Store({
     },
     actions: {
         FETCH_DATA: ({ commit }) => {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 fetchData().then(res => {
                     commit('SET_DATA', { data: res.data })
                     resolve()
@@ -100,7 +100,7 @@ const store = new Vuex.Store({
             })
         },
         FETCH_GETCARD: ({ commit },params) => {
-            return new Promise((resolve, reject) => {
+            return new Promise((resolve) => {
                 addCard(params).then(res => { 
                     var data=res.data.message;
                       data.num=1

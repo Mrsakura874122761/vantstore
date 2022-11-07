@@ -15,7 +15,7 @@
         <div
           class="rightitem"
           :key="rindex"
-          v-for="(ritem, rindex) in list[this.indexs].children"
+          v-for="(ritem, rindex) in list[this.indexs]?list[this.indexs].children?list[this.indexs].children:'':''"
         >
           <h3>{{ ritem.cat_name}}</h3>
           <van-grid :column-num="3"    icon-size="70px">

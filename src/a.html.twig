@@ -1,0 +1,133 @@
+{% extends "AppBundle::base.html.twig" %}
+
+{% block body %}
+	{% block header %}
+		{% spaceless %}
+			<header>
+				<div class="topbar">
+					<div class="big-container" style="max-width: 100%;">
+						<div class="f-l text-box">
+							<div class="static-text ">
+								<span class="static-item home-logo four_zero_four">
+									{% if frontend.site.slug == 'litecosm' %}
+										<img with="57" height="46" src="{{ asset('images/main/cosm_logo.png') }}"/>
+									{% else %}
+										<img with="57" height="46" src="{{ asset('images/main/logo_top.png') }}"/>
+									{% endif %}
+								</span>
+								{{ get_message('_layout_top_air')|raw }}
+							</div>
+						</div>
+						<div class="f-r mail">
+							<span class="mail-positon">
+								<a href="mailto:info@tantec1.com">
+									<i class="icon-mail"></i>
+								</a>
+							</span>
+						</div>
+						<div class="f-r search-box">
+							<form id="search-air" name="search-air" method="get" action="{{ website_page_path(28) }}">
+								<span class="search">
+									<i class="searchTo"></i>
+									<input type="text" title="search" name="q">
+								</span>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="occupy" style="width:100%"></div>
+				{% block header_banner %}{% endblock header_banner %}
+				<div class="menubar">
+					<div class="">
+						<div class="main-menu">
+							<nav class="navbar navbar-expand-lg navbar-expand-md navbar-light">
+								<a class="navbar-brand" href="{{ website_home_path() }}">
+
+
+									{% if frontend.site.slug == 'litecosm' %}
+										<img class="logo-img pc no-scoll-logo sub-logo" with="299" height="38" style="
+																						    margin-top: 2px;
+																						" src="{{ asset('images/main/cosm_logo3.png') }}"/>
+										<img width="187" class="logo-img  pc no-scoll-logo home-logo" src="{{ asset('images/main/cosm_logo2.png') }}"/>
+										<img with="299" height="62" class="logo-img mob" src="{{ asset('images/main/cosm_logo2.png') }}"/>
+									{% else %}
+										<img class="logo-img pc no-scoll-logo sub-logo" with="299" height="42" src="{{ asset('images/main/sub_logo.png') }}"/>
+										<img width="187" class="logo-img  pc no-scoll-logo home-logo" src="{{ asset('images/main/logo.png') }}"/>
+										<img with="299" height="42" class="logo-img mob" src="{{ asset('images/main/sub_logo.png') }}"/>
+									{% endif %}
+									{% if body_class !='homepage' %}
+										{% if frontend.site.slug == 'litecosm' %}
+											<img with="62" height="38" class="logo-img scroll-logo pc" src="{{ asset('images/main/cosm_logo3.png') }}"/>
+										{% else %}
+											<img with="62" height="44" class="logo-img scroll-logo pc" " src=" {{ asset('images/main/sub_logo.png') }} "/>
+																																		{% endif %}
+																																	{% endif %}
+																																</a>
+																																<button class=" navbar-toggler" type=" button" data-toggle=" collapse" data-target=" #head-menu-content" aria-controls=" head-menu-content" aria-expanded=" false" aria-label=" toggle navigation">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+										<div class="collapse navbar-collapse" id="head-menu-content">
+											{% if frontend.main_menu_id %}
+												{{ cms_menu_render(frontend.main_menu_id, {'id':'main-menu', 'class':'navbar-nav ml-auto'}, 'AppBundle:Menu:menu.html.twig') }}
+											{% endif %}
+										</div>
+									</nav>
+								</div>
+							</div>
+						</div>
+					</header>
+				{% endspaceless %}
+			{% endblock header %}
+
+			{% block content %}{% endblock content %}
+
+			<div id="go-top"></div>
+
+			{% block footer %}
+				<footer class="footer">
+					<div class="menu-bg">
+						<div class="row big-container menu_foot">
+							<div class="col-md-9 col-sm-12">
+								<div class="row">
+									{% if frontend.site.slug == 'litecosm' %}
+										{{ cms_menu_render('footer-menu2', {'class':'sub-menu'}, 'AppBundle:Menu:footer.html.twig') }}
+									{% else %}
+										{{ cms_menu_render('footer-menu', {'class':'sub-menu'}, 'AppBundle:Menu:footer.html.twig') }}
+									{% endif %}
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-12">
+								<div class="menu speical-menu">
+									<span class="menu-item">
+										<a class="a" href="{{ website_component_path('contact-us') }}">{{ "Find Us"|trans }}</a>
+									</span>
+									<span class="menu-item">
+										<a href="https://podcasts.apple.com/mo/podcast/isa-tantecs-podcast/id1626032828?l=en" target="_blank" class="icon1"><img src="{{ asset('images/main/icon_apple_podcasts.png') }}"></a>
+									</span>
+									<span class="menu-item">
+										<a href="https://open.spotify.com/show/0U0mH1PnqJakIeFkPTrc5s" target="_blank" class="icon1"><img src="{{ asset('images/main/icon_spotify.png') }}"></a>
+									</span>
+
+									<span class="menu-item">
+										<a href="mailto:info@tantec1.com" class="icon1"><img src="{{ asset('images/main/icon_mail.png') }}"></a>
+									</span>
+									<span class="menu-item in-menu">
+										<a href="https://www.linkedin.com/company/liteleather/about/" target="_blank" class="icon2">
+											<img src="{{ asset('images/main/in_icon.png') }}">
+										</a>
+									</span>
+								</div>
+								<div class="content">
+									<img width="113" height="83" src="{{ asset('images/main/footer_logo.png') }}">
+									{{ get_message('_layout_footer_content')|raw }}
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row_bg"></div>
+					<div class="foot_end">
+						{{ get_setting('copyright', '_system')|replace({'%YEAR%': "now"|date('Y')})|raw }}
+					</div>
+				</footer>
+			{% endblock footer %}
+		{% endblock body %}

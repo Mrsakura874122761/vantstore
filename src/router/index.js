@@ -16,6 +16,10 @@ const registered  =()=> import('../components/login/registered.vue')
 const order  =()=> import('../components/order')
 Vue.use(VueRouter)
 const routes=[
+    {
+        path:"/test",
+        component: ()=> import('./test.vue')   
+    },
 {
     path: '',
     redirect: '/home/nenmo',

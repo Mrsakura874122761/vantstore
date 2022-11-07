@@ -42,6 +42,7 @@ Vue.use(Col);
 Vue.use(Row);
 Vue.use(Lazyload);
 Vue.prototype.$http = axios
+Vue.prototype.$env= process.env
 //解决移动端按钮点击延迟300ms
 fastclick.attach(document.body)
 new Vue({
