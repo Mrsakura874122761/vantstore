@@ -181,6 +181,6 @@ export default {
   height: 100%;
 }
 .Swiper {
-  height: 200px;
+  height: auto;
 }
 </style>

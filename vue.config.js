@@ -104,14 +104,6 @@ module.exports = {
                     reuseExistingChunk: true
                     // enforce: true // 为true时，忽略minSize，minChunks，
                 },
-                vue: {
-                    name: 'chunk-vue',
-                    test: /[\\/]node_modules[\\/]@vue[\\/]/,
-                    chunks: 'all',
-                    priority: 20,
-                    reuseExistingChunk: true,
-                    enforce: true
-                },
                 vant: {
                     name: 'chunk-vant',
                     test: /[\\/]node_modules[\\/]vant[\\/]/,
